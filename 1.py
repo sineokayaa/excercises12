@@ -42,7 +42,12 @@ class Date:
         return f'{day} {Date.months[month - 1]} {year} г.'
 
     def __repr__(self):
-        return str(self.__date)
+        if self.__date is None:
+            return 'None'
+        day = int(self.__date.split('.')[0])
+        month = int(self.__date.split('.')[1])
+        year = int(self.__date.split('.')[2])
+        return str(f'{day} {Date.months[month - 1]} {year} г.')
 
     @staticmethod
     def ch_year(year):
